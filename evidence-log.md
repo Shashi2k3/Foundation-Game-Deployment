@@ -53,3 +53,8 @@ Individual reflection (each learner): assistance used, one next learning step.
   resources and reported OutOfSync "ignored (requires pruning)". Prune is disabled, so nothing was deleted and the
   blue Pod kept running. Evidence: evidence/m5-green/incident-argo-outofsync.txt.
 * Fix: resources.yaml restored from 0d4ea3f with only the green change applied; validated with kubectl dry-run before review.
+
+## Milestone 5.3 result (2026-11-25 12:37 UTC): prediction confirmed
+* Revision 7eef9320709306daf72a866277263c5e7ce4d315 (PR #8) synced: Synced + Healthy.
+* Pod replaced: foundation-bbdf85ff7-pf4zd (blue) -> foundation-5dc7bf6db4-pcgt6 (10.244.0.8); image ID unchanged
+  (sha256:99bc55a3d319...a823). Fresh smoke and browser request report workshop-green (evidence/m5-green/).

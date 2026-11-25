@@ -1,0 +1,10 @@
+PASS health: Healthy
+PASS page: 200
+PASS reference status: 200
+PASS board 3x3, 6 moves: 3 3 6
+PASS release: foundation-observe-a
+PASS environment: workshop-green
+PASS request id echoed: smoke-20261125T124136Z
+PASS missing board: 404
+request id: smoke-20261125T124136Z
+SMOKE PASSED
