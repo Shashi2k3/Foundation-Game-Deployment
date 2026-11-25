@@ -1,0 +1,11 @@
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES                                 SELECTOR
+deployment.apps/foundation   1/1     1            1           2m9s   foundation   localhost/p1-foundation:foundation-a   app=foundation
+
+NAME                             READY   STATUS    RESTARTS   AGE    IP           NODE       NOMINATED NODE   READINESS GATES
+pod/foundation-bbdf85ff7-pf4zd   1/1     Running   0          2m9s   10.244.0.7   minikube   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE    SELECTOR
+service/foundation   ClusterIP   10.110.179.219   <none>        8080/TCP   2m9s   app=foundation
+
+NAME                                              ADDRESSTYPE   PORTS   ENDPOINTS    AGE
+endpointslice.discovery.k8s.io/foundation-nt6ln   IPv4          8080    10.244.0.7   2m9s
