@@ -1,0 +1,10 @@
+FAIL health: got '', expected 'Healthy'
+FAIL page: got '000', expected '200'
+FAIL reference status: got '', expected '200'
+PASS board 3x3, 6 moves: 3 3 6
+FAIL release: got '', expected 'foundation-observe-a'
+FAIL environment: got '', expected 'workshop-blue'
+FAIL request id echoed: got '', expected 'smoke-20261125T120933Z'
+FAIL missing board: got '000', expected '404'
+request id: smoke-20261125T120933Z
+SMOKE FAILED

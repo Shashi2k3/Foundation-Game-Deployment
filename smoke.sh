@@ -5,7 +5,7 @@ ok() { if [ "$1" = "$2" ]; then echo "PASS $3: $1"; else echo "FAIL $3: got '$1'
 for i in $(seq 30); do curl -fs "$base/healthz" >/dev/null && break; sleep 1; done
 ok "$(curl -s "$base/healthz")" "Healthy" "health"
 ok "$(curl -s -o /dev/null -w '%{http_code}' "$base/")" "200" "page"
-h="$(curl -s -D - -o /tmp/board.json -H "X-Request-Id: $id" "$base/api/boards/reference" | tr -d '\r')"
+rm -f /tmp/board.json; h="$(curl -s -D - -o /tmp/board.json -H "X-Request-Id: $id" "$base/api/boards/reference" | tr -d '\r')"
 ok "$(echo "$h" | head -1 | cut -d' ' -f2)" "200" "reference status"
 ok "$(python3 -c 'import json;b=json.load(open("/tmp/board.json"));print(b["width"],b["height"],b["initialMoves"])')" "3 3 6" "board 3x3, 6 moves"
 ok "$(echo "$h" | sed -n 's/^X-Lab-Release: //Ip')" "foundation-observe-a" "release"
