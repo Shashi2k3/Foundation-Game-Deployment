@@ -1,0 +1,5 @@
+NAME                             READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+pod/foundation-bbdf85ff7-pf4zd   1/1     Running   0          47m   10.244.0.7   minikube   <none>           <none>
+
+NAME                                              ADDRESSTYPE   PORTS   ENDPOINTS    AGE
+endpointslice.discovery.k8s.io/foundation-nt6ln   IPv4          8080    10.244.0.7   47m
