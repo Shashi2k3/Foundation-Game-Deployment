@@ -1,0 +1,18 @@
+Name:               argocd/p1-foundation
+Project:            default
+Server:             https://kubernetes.default.svc
+Namespace:          p1-foundation
+URL:                http://localhost:39133/applications/p1-foundation
+Source:
+- Repo:             https://github.com/Shashi2k3/Foundation-Game-Deployment.git
+  Target:           main
+  Path:             configuration/app
+SyncWindow:         Sync Allowed
+Sync Policy:        Manual
+Sync Status:        OutOfSync from main (4cab5de)
+Health Status:      Healthy
+
+GROUP  KIND        NAMESPACE      NAME                 STATUS     HEALTH   HOOK  MESSAGE
+       ConfigMap   p1-foundation  foundation-settings  OutOfSync                 ignored (requires pruning)
+       Service     p1-foundation  foundation           OutOfSync  Healthy        ignored (requires pruning)
+apps   Deployment  p1-foundation  foundation           OutOfSync  Healthy        ignored (requires pruning)
