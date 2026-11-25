@@ -1,0 +1,20 @@
+# CI gate: build the image and run the smoke checks on every PR and push to main. Never deploys.
+name: p1-gates
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: podman build -f Containerfile -t localhost/p1-foundation:ci .
+      - name: Start container
+        run: podman run -d --name p1-ci -p 127.0.0.1:18080:8080 --env-file runtime.env localhost/p1-foundation:ci
+      - name: Smoke test
+        run: bash smoke.sh http://127.0.0.1:18080 "$(sed -n 's/^LAB_ENV=//p' runtime.env)"
+      - name: Container logs
+        if: always()
+        run: podman logs p1-ci
