@@ -26,3 +26,10 @@ Individual reflection (each learner): assistance used, one next learning step.
 * Prediction confirmed. Argo "Healthy" did not mean reachable: endpoint and request checks were needed.
   CI (p1-gates) also passed on this PR, because it tests the container alone, not the Service selector.
 * Rejected repair: rebuilding the image. The image and Pod were fine; the Service's label query matched nothing.
+
+## Milestone 5 first recovery attempt (2026-11-25 12:09 UTC): failed, preserved
+* Corrective revision 0ee27e963d492a3c8e2fa2099e626b35d26cd107 synced, but the Service selector was still
+  app=foundation-missing and endpoints <unset>: the git revert had not applied (uncommitted evidence-log.md change
+  blocked it), so that commit contained only evidence. Fresh smoke failed; fresh port-forward timed out.
+* Lesson: verify the corrective diff itself and re-check endpoints after sync; a "fix" commit is not proof of a fix.
+* Note: the "board 3x3" PASS in that run was a false pass (stale /tmp/board.json); smoke.sh fixed below.
