@@ -18,3 +18,11 @@ Individual reflection (each learner): assistance used, one next learning step.
   The Service now selects no Pod (no Pod has label app=foundation-missing), so its endpoints become empty
   and a NEW port-forward to the Service fails. Rebuilding the image would not help: the image was never the fault,
   the Service's label query is.
+
+## Milestone 5 observed failure (2026-11-25 12:02 UTC)
+* Bad revision a807243df2718ef033435efd12fbba0ecf7d9156 synced: Argo Synced + Healthy; Deployment unchanged, Service configured.
+* Pod foundation-bbdf85ff7-pf4zd still 1/1 Running (0 restarts); Service selector app=foundation-missing;
+  EndpointSlice endpoints <unset>; fresh port-forward: "error: timed out waiting for the condition".
+* Prediction confirmed. Argo "Healthy" did not mean reachable: endpoint and request checks were needed.
+  CI (p1-gates) also passed on this PR, because it tests the container alone, not the Service selector.
+* Rejected repair: rebuilding the image. The image and Pod were fine; the Service's label query matched nothing.
