@@ -1,0 +1,18 @@
+# Argo CD Application: deploys configuration/app from this repo to namespace p1-foundation (manual sync only).
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: p1-foundation
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Shashi2k3/Foundation-Game-Deployment.git
+    targetRevision: main
+    path: configuration/app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: p1-foundation
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
