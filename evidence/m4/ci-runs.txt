@@ -1,0 +1,3 @@
+completed	success	Merge pull request #1 from Shashi2k3/deploy-foundation	p1-gates	main	push	45606567025	28s	2026-11-25T11:40:09Z
+completed	success	Deploy reviewed foundation image to minikube via Argo CD	p1-gates	deploy-foundation	pull_request	45606454488	26s	2026-11-25T11:39:24Z
+completed	success	Merge branch 'main' of https://github.com/Shashi2k3/Foundation-Game-D…	p1-gates	main	push	45601792576	27s	2026-11-25T11:09:32Z
